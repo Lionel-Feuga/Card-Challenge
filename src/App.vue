@@ -1,17 +1,9 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import LikeAnimation from './components/Like-Animation.vue'
 
 const image = ref(null)
 const isHovering = ref(false)
-const isFavorite = ref(false)
-const likeButton = ref(null) 
-
-onMounted(() => {
-  if (likeButton.value) {
-    console.log('likeButton initialized:', likeButton.value)
-  }
-})
 
 const handleMouseInteraction = (event, hovering) => {
   isHovering.value = hovering
@@ -30,10 +22,6 @@ const handleMouseInteraction = (event, hovering) => {
 
   image.value.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`
   image.value.style.boxShadow = `${-deltaX * 30}px ${-deltaY * 30}px 10px rgba(0, 0, 0, 0.3)`
-}
-
-const handleLikeAnimation = () => {
-  console.log('Like animation triggered')
 }
 </script>
 
